@@ -8,7 +8,33 @@
 {% block content %}
 <div class="container">
     <h1>Yummly API</h1>
-    {% for match in match_list %}
+    {% for flavor in flavor_list %}
+        <h2>{{ flavor.recipeName }}</h2>
+        <h5>{{ flavor.sourceDisplayName }}</h5>
+        <img src="{{ flavor.imageUrlsBySize.90 }}" alt="{{ flavor.recipeName }}">
+        <br>
+        <h6>Total Time In Seconds: {{ flavor.totalTimeInSeconds }}</h6>
+        <h5>Ingredients</h5>
+        {% for ingredient in flavor.ingredients %}
+        <h6>{{ ingredient.title }}</h6>
+        {% endfor %}
+        <h5>Attributes</h5>
+        {% for key, value in flavor.attributes.iteritems %}
+            <h6>{{ value.0.title }}</h6>
+        {% endfor %}
+        <h5>Flavors: </h5>
+        {% for key, value in flavor.flavors.iteritems %}
+            <h6>{{ key.title }}: {{ value }}</h6>
+        {% endfor %}
+        <h6>{{ flavor }}</h6>
+        <br>
+    {% endfor %}
+    {% for recipe in recipe_list %}
+        <h6>{{ recipe }}</h6>
+        <br>
+    {% endfor %}
+    <!--<h6>{{recipe_list}}</h6>
+    {% for match in recipe_list %}
         <h2>{{ match.0.recipeName }}</h2>
         <img src="{{ match.0.imageUrlsBySize.90 }}" alt="Food Pic">
         <h6>Flavors: {{ match.0.flavors }}</h6>
@@ -21,9 +47,7 @@
         <h6>Rating: {{ match.0.rating }}</h6>
         <h6>{{ match.0 }}</h6>
         <br>
-    {% endfor %}
+    {% endfor %}-->
     <h6>{{ recipe_list }}</h6>
-    <h6>{{ match_list }}</h6>
-    <h6>{{ recipes }}</h6>
 </div>
 {% endblock %}
