@@ -8,8 +8,9 @@ def index(request):
     api_keys = key['api_key']
     url_root = 'http://api.yummly.com/v1/api/recipes?_app_id='
     url_middle = '&_app_key='
-    food_search = 'chili'
-    url = str(url_root) + str(app_id) + str(url_middle) + str(api_keys) + "&" + str(food_search)
+    food_search = 'garlic'
+    url = str(url_root) + str(app_id) + str(url_middle) + str(api_keys) + "&q=" + str(food_search)
+    print("Url: {}".format(url))
     response = requests.get(url)
     recipes = response.json()
     matches = recipes['matches']

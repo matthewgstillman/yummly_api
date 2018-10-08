@@ -26,28 +26,9 @@
         {% for key, value in flavor.flavors.iteritems %}
             <h6>{{ key.title }}: {{ value }}</h6>
         {% endfor %}
-        <h6>{{ flavor }}</h6>
+        <h6>ID: {{ flavor.id }}</h6>
+        <h6>Rating: {{ flavor.rating }} Stars</h6>
         <br>
     {% endfor %}
-    {% for recipe in recipe_list %}
-        <h6>{{ recipe }}</h6>
-        <br>
-    {% endfor %}
-    <!--<h6>{{recipe_list}}</h6>
-    {% for match in recipe_list %}
-        <h2>{{ match.0.recipeName }}</h2>
-        <img src="{{ match.0.imageUrlsBySize.90 }}" alt="Food Pic">
-        <h6>Flavors: {{ match.0.flavors }}</h6>
-        <h6>Total Time In Seconds: {{ match.0.totalTimeInSeconds }}</h6>
-        <h6>Ingredients: {{ match.0.ingredients }}</h6>
-        <h6>Attributes: {{ match.0.attributes }}</h6>
-        <img src="{{ match.0.smallImageUrls.0}}" alt="Food Pic">
-        <h6>Source Display Name: {{ match.0.sourceDisplayName }}</h6>
-        <h6>ID: {{ match.0.id }}</h6>
-        <h6>Rating: {{ match.0.rating }}</h6>
-        <h6>{{ match.0 }}</h6>
-        <br>
-    {% endfor %}-->
-    <h6>{{ recipe_list }}</h6>
 </div>
 {% endblock %}
